@@ -93,7 +93,7 @@
 					var bars = svg.selectAll("rect")			//Select all bars
 						.data(dataset);							//Re-bind data to existing bars, return the 'update' selection
 																//'bars' is now the update selection
-					
+					                                           /***BA: AHH .. after selecting with .data(dataset), we got the update selection ... then enter() and add attributes to it without touching the rest */
 					//Enter…
 					bars.enter()								//References the enter selection (a subset of the update selection)
 						.append("rect")							//Creates a new rect
@@ -140,7 +140,7 @@
 							return xScale(i) + xScale.rangeBand() / 2;
 					   })
 					   .attr("y", function(d) {
-							return h - yScale(d) + 14;
+							return   h - yScale(d) + 14;
 					   });
 
 				});

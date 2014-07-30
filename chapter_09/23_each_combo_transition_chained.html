@@ -116,13 +116,19 @@
 					//Update all circles
 					svg.selectAll("circle")
 					   .data(dataset)
-					   .transition()
-					   .duration(1000)
-					   .each("start", function() {
+                       .transition()
+					   .duration(1000) 
+                       /*.each("start", function() {
 						   d3.select(this)
+                             //.transition()
+                             //.duration(500)    // couldn't do this
 						     .attr("fill", "magenta")
 						     .attr("r", 7);
-					   })
+					   })*/
+                        .attr("fill", "magenta")
+                        .attr("r", 7)
+                       .transition()
+					   .duration(1000) 
 					   .attr("cx", function(d) {
 					   		return xScale(d[0]);
 					   })
@@ -137,15 +143,18 @@
 					//Update X axis
 					svg.select(".x.axis")
 				    	.transition()
+                    .delay(1000)
 				    	.duration(1000)
 						.call(xAxis);
 					
 					//Update Y axis
 					svg.select(".y.axis")
 				    	.transition()
+                    .delay(1000)
 				    	.duration(1000)
 						.call(yAxis);
-
+/* I've modified the code so that the dots enlarging is animated... What is 
+the purpose of .each( )???? */
 				});
 
 

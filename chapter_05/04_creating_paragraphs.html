@@ -10,12 +10,13 @@
 		
 			var dataset = [ 5, 10, 15, 20, 25 ];
 			
-			d3.select("body").selectAll("p")
+			d3.select("body").selectAll()
 				.data(dataset)
 				.enter()
 				.append("p")
-				.text("New paragraph!");
-			
+				.text(function(d) { return d;});
+			<!-- The select all p is not necessary. At least not that I can see -->
+            <!-- Seems to make some difference.  -->
 		</script>
 	</body>
 </html>

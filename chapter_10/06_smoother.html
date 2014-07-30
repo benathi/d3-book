@@ -5,7 +5,15 @@
 		<title>D3: Smoother highlight transitions</title>
 		<script type="text/javascript" src="../d3/d3.v3.js"></script>
 		<style type="text/css">
-			/* No style rules here yet */		
+			/* No style rules here yet */	
+            /* Alternative to .style("pointer-events", "none")
+            we can use global setting in CSS like this
+            */
+            
+            svg text {
+                pointer-events: none;
+            }
+            
 		</style>
 	</head>
 	<body>
@@ -60,6 +68,7 @@
 				   		.duration(250)
 						.attr("fill", "rgb(0, 0, " + (d * 10) + ")");
 			   });
+            /* Is there a way to restore the value instead of re-calculating the value again? */
 
 			//Create labels
 			svg.selectAll("text")
@@ -79,6 +88,8 @@
 			   .attr("font-family", "sans-serif")
 			   .attr("font-size", "11px")
 			   .attr("fill", "white");
+               //.style("pointer-events", "none");
+            /* The last line fixed the issue that hovoring the mouse above it causes the mouse to be out of the rectangle - undersirable effect */
 			
 		</script>
 	</body>

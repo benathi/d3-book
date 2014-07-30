@@ -95,7 +95,23 @@
 				   .attr("x", function(d, i) {
 				   		return xScale(i);
 				   });
-
+                    /* resetting this attributes just shuffles according to the new order ? */
+                /* What is d and i in this case? */
+                /* I think d is the data element and i is the order */
+                /* 'i' is probably the order ? */
+                /* What exactly does this sort function do to the structure of the elements? */
+                /* I think sort looks up the data element value and changes the order index i */
+                
+                svg.selectAll("text")
+				   .sort(function(a, b) {
+					   return d3.ascending(a, b);
+				   	})
+				   .transition()
+				   .duration(1000)
+				   .attr("x", function(d, i) {
+				   		return xScale(i)+ xScale.rangeBand() / 2;
+				   });
+                /* I added this part to handle the text shifting as well */
 			};			
 			
 		</script>

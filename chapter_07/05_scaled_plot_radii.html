@@ -33,7 +33,7 @@
 			var rScale = d3.scale.linear()
 								 .domain([0, d3.max(dataset, function(d) { return d[1]; })])
 								 .range([2, 5]);
-	
+	/* scaling the radius from 2 to 5. This maps from the y direction. */
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")

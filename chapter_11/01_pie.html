@@ -24,7 +24,7 @@
 			var dataset = [ 5, 10, 20, 45, 6, 25 ];
 
 			var outerRadius = w / 2;
-			var innerRadius = 0;
+			var innerRadius = w/4; // can change this value
 			var arc = d3.svg.arc()
 							.innerRadius(innerRadius)
 							.outerRadius(outerRadius);
@@ -33,7 +33,8 @@
 			
 			//Easy colors accessible via a 10-step ordinal scale
 			var color = d3.scale.category10();
-
+            // scale.category20() -  can change the category of colors
+            
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")
@@ -47,14 +48,21 @@
 						  .append("g")
 						  .attr("class", "arc")
 						  .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
-			
+            // What does this transform line do? - centerize
+            // (outerRadius, outerRadius) is the center.
+			// Shouldn't this be incorporated automatically?
+            
+            
+            
 			//Draw arc paths
 			arcs.append("path")
 			    .attr("fill", function(d, i) {
 			    	return color(i);
 			    })
 			    .attr("d", arc);
-			
+			// fill arcs with colors based on the order.
+            
+            
 			//Labels
 			arcs.append("text")
 			    .attr("transform", function(d) {
@@ -64,7 +72,8 @@
 			    .text(function(d) {
 			    	return d.value;
 			    });
-						
+			// label arcs with text based on the value.		
+            
 		</script>
 	</body>
 </html>

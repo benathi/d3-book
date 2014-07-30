@@ -103,9 +103,9 @@
 					   		return yScale(d);
 					   })
 					   .attr("fill", function(d) {
-							return "rgb(0, 0, " + (d * 10) + ")";
+							return "hsl( 50, 100%, " + (20+ d)  + "% )";
 					   });
-
+                        /* I changed the color to hls */
 					//Update all labels
 					svg.selectAll("text")
 					   .data(dataset)

@@ -125,6 +125,7 @@
 					   		return yScale(d[1]);
 					   });
 
+                    /* BA: The xAxis object refers to xScale, which got updated. The xAxis is updated automatically. */
 					//Update X axis
 					svg.select(".x.axis")
 				    	.transition()

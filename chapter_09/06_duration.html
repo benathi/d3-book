@@ -102,6 +102,8 @@
 					//Update all labels
 					svg.selectAll("text")
 					   .data(dataset)
+                       .transition()
+					   .duration(300)	
 					   .text(function(d) {
 					   		return d;
 					   })

@@ -45,12 +45,17 @@
 
 			//Data, stacked
 			stack(dataset);
+            // this method is passing the dataset to the stack layout object
 
 			//Set up scales
 			var xScale = d3.scale.ordinal()
 				.domain(d3.range(dataset[0].length))
 				.rangeRoundBands([0, w], 0.05);
 		
+            // xScale is based on the order of the elements
+            // domain is from min x to max x of the data
+            // the 
+            
 			var yScale = d3.scale.linear()
 				.domain([0,				
 					d3.max(dataset, function(d) {
@@ -62,7 +67,7 @@
 				.range([0, h]);
 				
 			//Easy colors accessible via a 10-step ordinal scale
-			var colors = d3.scale.category10();
+			var colors = d3.scale.category20();
 		
 			//Create SVG element
 			var svg = d3.select("body")
@@ -88,13 +93,14 @@
 					return xScale(i);
 				})
 				.attr("y", function(d) {
-					return yScale(d.y0);
+					return h - yScale(d.y) - yScale(d.y0);
 				})
 				.attr("height", function(d) {
 					return yScale(d.y);
 				})
 				.attr("width", xScale.rangeBand());
-						
+				// we reverted from top to bottom 
+            
 		</script>
 	</body>
 </html>

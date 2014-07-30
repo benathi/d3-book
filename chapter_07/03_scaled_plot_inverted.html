@@ -28,7 +28,7 @@
 			var yScale = d3.scale.linear()
 								 .domain([0, d3.max(dataset, function(d) { return d[1]; })])
 								 .range([h, 0]);
-	
+	/* inverted in the y direction. maps the bottom to the top and the top to the bottom */
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")

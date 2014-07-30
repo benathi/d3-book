@@ -51,7 +51,8 @@
 			var xAxis = d3.svg.axis()
 							  .scale(xScale)
 							  .orient("bottom");
-
+/* xAxis is defined by xScale which is an object for linear scale variable.*/
+/* scale maps domain to range */
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")
@@ -97,7 +98,7 @@
 				.attr("class", "axis")
 				.attr("transform", "translate(0," + (h - padding) + ")")
 				.call(xAxis);
-
+/* xAxis is an Axis object previously defined */
 		</script>
 	</body>
 </html>

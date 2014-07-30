@@ -28,7 +28,10 @@
 			var yScale = d3.scale.linear()
 								 .domain([0, d3.max(dataset, function(d) { return d[1]; })])
 								 .range([0, h]);
-	
+	/* it maps the domain which is from 0 to the max in x direction to 
+    the range which is from 0 to w. Got it!  */
+            
+            
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")

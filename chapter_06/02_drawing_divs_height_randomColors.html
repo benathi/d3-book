@@ -27,7 +27,10 @@
 				.attr("class", "bar")
                 .style("height", function(d) {
 					return d + "px";
-				});
+				})
+                .style("background-color", function() {
+  return "hsl(" + Math.random() * 360 + ",100%,50%)";
+});
 			
 		</script>
 	</body>
